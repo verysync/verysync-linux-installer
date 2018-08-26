@@ -1,7 +1,9 @@
 ## 使用方法
 下面脚本会自动从github
 ```
-./go-installer.sh
+curl "https://github.com/verysync/verysync-linux-installer/blob/master/go-installer.sh?raw=true" > go-installer.sh && \
+chmod +x go-installer.sh && \
+go-installer.sh
 ```
 
 ## 经测试系统:
