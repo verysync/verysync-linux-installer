@@ -7,8 +7,8 @@ if test "n" = n; then
     umask 077
 fi
 
-CRCsum="2307263769"
-MD5="e4c95756d5019aeabadefcac69637554"
+CRCsum="3322582600"
+MD5="8b127f31f83af69d1ebf200bb69ecffd"
 SHA="0000000000000000000000000000000000000000000000000000000000000000"
 TMPROOT=${TMPDIR:=/tmp}
 USER_PWD="$PWD"; export USER_PWD
@@ -282,7 +282,7 @@ do
 	echo Target directory: "$targetdir"
 	echo Uncompressed size: 188 KB
 	echo Compression: gzip
-	echo Date of packaging: Sun Aug 26 22:13:50 CST 2018
+	echo Date of packaging: Mon Aug 27 00:08:20 CST 2018
 	echo Built with Makeself version 2.4.0 on linux-gnu
 	echo Build command was: "./makeself-2.4.0/makeself.sh \\
     \"src\" \\
@@ -585,7 +585,7 @@ if test x"$keep" = xn; then
     /bin/rm -rf "$tmpdir"
 fi
 eval $finish; exit $res
-‹ žµ‚[ìZpTUš>ý ‚G“@@ºð^Iy ‚"†¨,ŽæÑé@LÒº;€2%- ËNf”+ˆ®5¥ugI;»ËÌG”Õˆì,;nÍ »Ãº£3v‡×Œnm1Á4ô~ÿísé?gt¬©)µ¶j.urïÿÝsþÿ?ÿùþó¸Í¬ÙâK¿
+‹ tÐ‚[ìZpTUš>ý ‚G“@@ºð^Iy ‚"†¨,ŽæÑé@LÒº;€2%- ËNf”+ˆ®5¥ugI;»ËÌG”Õˆì,;nÍ »Ãº£3v‡×Œnm1Á4ô~ÿísé?gt¬©)µ¶j.urïÿÝsþÿ?ÿùþó¸Í¬ÙâK¿
 q•Í«ßq©wý¹hÎœ’Â¹sŠJŠŠ—•ÎŽ¹â+¸:Á¿Ã!ü>_ðÕû¢÷ÿO¯Y³©ÿÁ™ ¯cfSƒ§ÝçýµIiñÜ²RQ¡°äÏãÿuƒ¿½´ä«ÿ¢ÂÒÂ2cüç—Òø—•	GáŸÇÿK¿¶,¾c‰Ùdº&›ÅI+óºì”øàãÉ6NQ.Rñw¢˜ R `õœÂ9ì¾Cª6î#e=Šå˜Ä™œÃî“d=ãnb÷Ãzàvß½I»-é/ù*BU»Ï”J»Gog–í&Èvd}ã‘ŽE”þYe9-ñÓ²_ÆÝ!ë9X}ºî>lJù#Æ/]Þg·µ4ÎnkšÙÖâíÜ4³¡Áï^WZ2+à›U”Ð.{tÛŠ{®Å?•éi@ñ0y{®W|4®ûQJQrQ Ý(7£Ð¼Ò$ë­@q£Ì—òio&Ê‰­”÷J”©ò™"|Ÿ|‡r|®‘÷;Qî‘Ï‹P2åsÊƒ(Õ(KP\(uòÝ”é(“Y?îUú•rÊR”…(EŸ(¹0å(·c&ïóhP–KyJ#Ó{=Êb”e(«ÙØÓ•Bsî_|Áx›þ„\ñGÔÍúl4ÊŒw9ì]J|¾é3ÚŽRøf\· ÜˆRÎòýVu’÷1,ÓÇ^›¯†_(6”4)OaïjY~Ž—9`\Å(w¡Ø¶ÆX¿þ@œB’w+';‡/æ^¯à?•õ;<Mâ!ÿ®)ïTp›Ä»ügRÏ?%ñ>Ï“~WðIRDÁß—õÏ+xDÖ×Ç7I<]Á‹¤‡‚ß"ý,Tðÿ–zœ
 ~Xâ+ü)‰×+ø	åZŽ(|¼jØ|ý¾1.Jý»¥Ÿ!¿ËGê/Wô?cŒ—Rÿˆ1^
 þŸÆx)¸SâÇü%c¼|‰Høã”þXßõqTê×ËþŠ)ÃñeýtÎGß!ã°T‰Ãég¡ª_êq*xš1¾
