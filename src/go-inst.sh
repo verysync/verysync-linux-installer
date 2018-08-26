@@ -250,9 +250,6 @@ installVerysync(){
         return 1
     fi
     makeExecutable verysync
-    # copyFile v2ctl && makeExecutable v2ctl
-    # copyFile geoip.dat
-    # copyFile geosite.dat
 
     # Install verysync server config to /etc/verysync
     # if [[ ! -f "/etc/verysync/config.json" ]]; then
@@ -296,10 +293,10 @@ installInitScript(){
         # installSoftware "daemon"
         # installSoftware "daemon" || return $?
         # cp "/tmp/verysync/verysync-linux-${VDIS}-${NEW_VER}/etc/linux-systemv/verysync" "/etc/init.d/verysync"
-        
+
         # if [[ $? -ne 0 ]]; then
         # fi
-        
+
         if [[ -n `command -v chkconfig` ]]; then
             #Centos
             if [[ ! -f "start-stop-daemon/$VDIS" ]]; then
@@ -316,7 +313,7 @@ installInitScript(){
                 sed -i "s#^VSHOME=#VSHOME=\"$VSHOME\"#" /etc/systemd/system/verysync.service
             fi
 
-            
+
             chkconfig --add verysync
             service verysync start
         elif [[ -n `command -v update-rc.d` ]]; then
@@ -428,8 +425,8 @@ main(){
             return 1
         fi
     fi
-    
-    
+
+
 
     sysArch
     # extract local file
