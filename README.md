@@ -27,6 +27,15 @@ chmod +x go-installer.sh
   -d  --home            指定微力索引存放位置, 默认 ~/.config/verysync
 ```
 
+## 此脚本会自动安装以下文件：
+- /usr/bin/verysync/verysync: 微力主程序
+- /usr/bin/verysync/start-stop-daemon: daemon管理程序 centos 会使用预编译好的i386 amd64 arm arm64版本
+安装器会配置自动运行脚本。自动运行脚本会在系统重启之后，自动运行 verysync。目前自动运行脚本只支持带有 Systemd, init.d 的系统，以及 Debian / Ubuntu 全系列。
+
+运行脚本位于系统的以下位置：
+- /etc/systemd/system/verysync.service: Systemd
+- /etc/init.d/verysync: SysV
+
 ## 经测试系统:
 - CentOS 6.5  init.d
 - CentOS 7.5  systemd
