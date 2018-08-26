@@ -250,9 +250,6 @@ installVerysync(){
         return 1
     fi
     makeExecutable verysync
-    # copyFile v2ctl && makeExecutable v2ctl
-    # copyFile geoip.dat
-    # copyFile geosite.dat
 
     # Install verysync server config to /etc/verysync
     # if [[ ! -f "/etc/verysync/config.json" ]]; then
