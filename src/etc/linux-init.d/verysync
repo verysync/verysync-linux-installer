@@ -1,0 +1,112 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          verysync
+# Required-Start:    $network $local_fs $remote_fs
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: verysync services
+# Description:       verysync services
+### END INIT INFO
+
+
+DESC=verysync
+NAME=verysync
+DAEMON=/usr/bin/verysync/verysync
+PIDFILE=/var/run/$NAME.pid
+SCRIPTNAME=/etc/init.d/$NAME
+PATH="/usr/bin/verysync:$PATH"
+
+VSHOME="$HOME/.config/verysync"
+USER="root"
+DAEMON_OPTS="-gui-address :8886"
+
+
+# Exit if the package is not installed
+[ -x $DAEMON ] || exit 0
+
+start_daemon ()
+{
+    if [[ -n "${VSHOME}" && -d "$VSHOME" ]]; then
+        chown -R ${USER}:${USER} "${VSHOME}"
+    fi
+    #su - ${USER} -s "/bin/sh" -c "umask 000; PATH=${PATH} ${VERYSYNC} $VERYSYNC_OPTIONS"
+    start-stop-daemon -b -o -c ${USER} -S -u ${USER} -k 002 -x env HOME="${VSHOME}" ${DAEMON} -- ${DAEMON_OPTS}
+}
+
+stop_daemon ()
+{
+    #kill `cat ${PID_FILE}`
+    #wait_for_status 1 60 || kill -9 `cat ${PID_FILE}`
+    #rm -f ${PID_FILE}
+    start-stop-daemon -o -c ${USER} -K -u ${USER} -x ${DAEMON}
+    wait_for_status 1 20 || start-stop-daemon -K -s 9 -q -x ${DAEMON}
+}
+
+daemon_status ()
+{
+    # if [ -f ${PID_FILE} ] && kill -0 `cat ${PID_FILE}` > /dev/null 2>&1; then
+    #     return
+    # fi
+    # rm -f ${PID_FILE}
+    # return 1
+    start-stop-daemon -K -q -t -u ${USER} -x ${DAEMON}
+    [ $? -eq 0 ] || return 1
+}
+
+# wait_for_status ()
+# {
+#     counter=$2
+#     while [ ${counter} -gt 0 ]; do
+#         daemon_status
+#         [ $? -eq $1 ] && return
+#         let counter=counter-1
+#         sleep 1
+#     done
+#     return 1
+# }
+wait_for_status ()
+{
+    counter=$2
+    while [ ${counter} -gt 0 ]; do
+        daemon_status
+        [ $? -eq $1 ] && return
+        let counter=counter-1
+        sleep 1
+    done
+    return 1
+}
+
+case $1 in
+    start)
+        if daemon_status; then
+            echo ${NAME} is already running
+        else
+            echo Starting ${NAME} ...
+            start_daemon
+        fi
+        ;;
+    stop)
+        if daemon_status; then
+            echo Stopping ${NAME} ...
+            stop_daemon
+        else
+            echo ${NAME} is not running
+        fi
+        ;;
+    status)
+        if daemon_status; then
+            echo ${NAME} is running
+            exit 0
+        else
+            echo ${NAME} is not running
+            exit 1
+        fi
+        ;;
+    log)
+        exit 1
+        ;;
+    *)
+        exit 1
+        ;;
+esac
