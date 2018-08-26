@@ -1,7 +1,8 @@
 ## 说明
 本仓库代码用于Linux下自动安装verysync, 并加入各种系统的开机启动，
-默认索引存放路径~/.config/verysync
-端口号: 8886
+- 默认索引存放路径~/.config/verysync
+- 端口号: 8886
+
 
 ## 快速安装 
 ```
@@ -31,3 +32,6 @@ chmod +x go-installer.sh
 - CentOS 7.5  systemd
 - Debian 7.11 systemv
 - Debian 9.5  systemd
+
+
+由于Centos默认仓库 没有daemon套件，所以本仓库自带了i386 amd64 arm arm64版本的start-stop-daemon程序，省去了系统编译安装. 如果使用其它架构的系统，需要自行编译daemon套件方法 https://gist.github.com/yuuichi-fujioka/c4388cc672a3c8188423
