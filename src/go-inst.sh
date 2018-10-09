@@ -106,7 +106,8 @@ downloadVerysync(){
     rm -rf /tmp/verysync
     mkdir -p /tmp/verysync
     colorEcho ${BLUE} "Downloading verysync."
-    DOWNLOAD_LINK="https://github.com/verysync/releases/releases/download/${NEW_VER}/verysync-linux-${VDIS}-${NEW_VER}.tar.gz"
+    #DOWNLOAD_LINK="https://github.com/verysync/releases/releases/download/${NEW_VER}/verysync-linux-${VDIS}-${NEW_VER}.tar.gz"
+    DOWNLOAD_LINK="http://releases.verysync.com/releases/${NEW_VER}/verysync-linux-${VDIS}-${NEW_VER}.tar.gz"
     curl ${PROXY} -L -H "Cache-Control: no-cache" -o ${ZIPFILE} ${DOWNLOAD_LINK}
     if [ $? != 0 ];then
         colorEcho ${RED} "Failed to download! Please check your network or try again."
